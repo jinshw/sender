@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 文件夹操作工具类
+ * @author shw
+ *
+ */
 public class FolderUtils {
 	private List listFiles(String folderPath){
 		List list = new ArrayList();
@@ -39,7 +44,7 @@ public class FolderUtils {
 	
 	public static void main(String[] args){
 		FolderUtils fus = new FolderUtils();
-		fus.listFiles("e:\\ws");
+		fus.listFiles("E:\\PKM231218");
 		
 	}
 }
