@@ -25,8 +25,8 @@ public class ZJPFileMonitor {
 		monitor.start();
 	}
 	public static void main(String[] args) throws Exception {
-		ZJPFileMonitor m = new ZJPFileMonitor(5000);
-		m.monitor("E:\\filepath",new ZJPFileListener());
+		ZJPFileMonitor m = new ZJPFileMonitor(1000);
+		m.monitor("E:/filepath/code",new ZJPFileListener());
 		m.start();
 	}
 }

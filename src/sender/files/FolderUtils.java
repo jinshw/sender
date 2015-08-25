@@ -42,6 +42,31 @@ public class FolderUtils {
 		list.add(fs);
 	}
 	
+	/**
+	 * 压缩文件夹
+	 * @param folderPath 需要压缩的文件夹
+	 * @param targetPath 压缩的文件保存的路径
+	 */
+	public void zipFolder(String folderPath,String targetPath){
+		
+	}
+	
+	/**
+	 * 删除文件或者文件夹
+	 * @param dirFile
+	 */
+	public void deleteFile(File dirFile){
+		if (dirFile.isDirectory()) {
+			File[] subFileList = dirFile.listFiles();
+			for (int i = 0; i < subFileList.length; i++) {
+				deleteFile(subFileList[i]);
+			}
+			dirFile.delete();
+		} else {
+			dirFile.delete();
+		}
+	}
+	
 	public static void main(String[] args){
 		FolderUtils fus = new FolderUtils();
 		fus.listFiles("E:\\PKM231218");

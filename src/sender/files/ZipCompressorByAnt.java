@@ -55,9 +55,9 @@ public class ZipCompressorByAnt {
 //        ZipCompressorByAnt zca = new ZipCompressorByAnt("E:\\szhzipant.zip");  
 //        zca.compress("E:\\test");
     	
-    	ZipCompressorByAnt zba = new ZipCompressorByAnt("E:\\项目.zip");
+    	ZipCompressorByAnt zba = new ZipCompressorByAnt("E:\\filepath\\code\\111.zip");
     	
-    	zba.compressExe("E:\\项目");
+    	zba.compressExe("E:\\filepath\\code\\111");
     	
     }
 } 
