@@ -16,12 +16,10 @@ public class SenderMain {
 			m.start();
 			
 			//2、监控缓存文件夹（待传输文件），如有文件进行socket接口传递
-//			ZJPFileMonitor zm;
-//			zm = new ZJPFileMonitor(1000);
-//			zm.monitor("E:/filepath/bak",new ZJPFileListener());
-//			zm.start();
-			
-			
+			String tmpFolder = "";
+			while(true){
+				//
+			}
 			
 			
 		} catch (Exception e) {

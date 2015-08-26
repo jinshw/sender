@@ -19,11 +19,20 @@ public class Client extends Socket{
    private DataOutputStream dos;
      
    public Client(){
+   }
+   
+   /**
+    * 发送文件
+    * @param filePath
+    */
+   public void sendFile(String filePath){
+	   
        try {
            try {
                client =new Socket(SERVER_IP, SERVER_PORT);
                //向服务端传送文件
-               File file =new File("d:/FeiQ.exe");
+//               File file =new File("d:/FeiQ.exe");
+               File file =new File(filePath);
                fis =new FileInputStream(file);
                dos =new DataOutputStream(client.getOutputStream());
                  
@@ -61,6 +70,7 @@ public class Client extends Socket{
    }
      
    public static void main(String[] args)throws Exception {
-       new Client();
+	   Client ct = new Client();
+	   ct.sendFile("d:/test.htm");
    }
 }

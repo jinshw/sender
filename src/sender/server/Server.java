@@ -17,8 +17,10 @@ public class Server extends ServerSocket{
     private Socket client;
     private DataInputStream dis;
     private FileOutputStream fos;
+    private String receivePath;
       
     public Server()throws Exception{
+    	receivePath = "e:/";
         try {
             
                 server =new ServerSocket(PORT);
@@ -31,7 +33,7 @@ public class Server extends ServerSocket{
                     //文件名和长度
                     String fileName = dis.readUTF();
                     long fileLength = dis.readLong();
-                    fos =new FileOutputStream(new File("e:/" + fileName));
+                    fos =new FileOutputStream(new File(receivePath + fileName));
                       
                     byte[] sendBytes =new byte[1024];
                     int transLen =0;
