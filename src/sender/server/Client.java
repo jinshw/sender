@@ -4,6 +4,7 @@ package sender.server;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.Socket;
  
 /**
@@ -25,9 +26,8 @@ public class Client extends Socket{
     * 发送文件
     * @param filePath
     */
-   public void sendFile(String filePath){
-	   
-       try {
+   public boolean sendFile(String filePath){
+	   boolean flag = true;
            try {
                client =new Socket(SERVER_IP, SERVER_PORT);
                //向服务端传送文件
@@ -56,21 +56,26 @@ public class Client extends Socket{
                    dos.flush();
                }
            }catch (Exception e) {
+        	   flag = false;
                e.printStackTrace();
            }finally{
-               if(fis !=null)
-                   fis.close();
-               if(dos !=null)
-                   dos.close();
-               client.close();
+				try {
+					if(fis !=null)
+					fis.close();
+					if(dos !=null)
+						dos.close();
+					client.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					flag = false;
+				}
            }
-       }catch (Exception e) {
-           e.printStackTrace();
-       }
+       return flag;
    }
      
    public static void main(String[] args)throws Exception {
 	   Client ct = new Client();
-	   ct.sendFile("d:/test.htm");
+	   ct.sendFile("E:/filepath/bak/111.zip");
    }
 }

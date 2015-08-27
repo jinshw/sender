@@ -20,7 +20,7 @@ public class Server extends ServerSocket{
     private String receivePath;
       
     public Server()throws Exception{
-    	receivePath = "e:/";
+    	receivePath = "E:/filepath/server/";
         try {
             
                 server =new ServerSocket(PORT);
@@ -33,7 +33,8 @@ public class Server extends ServerSocket{
                     //文件名和长度
                     String fileName = dis.readUTF();
                     long fileLength = dis.readLong();
-                    fos =new FileOutputStream(new File(receivePath + fileName));
+                    
+                    fos =new FileOutputStream(new File(receivePath + "/" + fileName));//拼接地址时多个“/”可以防止配置文件夹路径后少个"/"
                       
                     byte[] sendBytes =new byte[1024];
                     int transLen =0;
@@ -49,7 +50,7 @@ public class Server extends ServerSocket{
                         fos.flush();
                     }
                     System.out.println("----接收文件<" + fileName +">成功-------");
-                    client.close();
+                    
                     
                 	}catch (Exception e) {
                         e.printStackTrace();
@@ -58,7 +59,7 @@ public class Server extends ServerSocket{
                             dis.close();
                         if(fos !=null)
                             fos.close();
-                        
+                        client.close();
                     }
                 }
             

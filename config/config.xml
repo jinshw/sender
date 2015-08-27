@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdkl-trans>
+	<sender>
+		<version>1.0</version>
+		<!-- Publish Info 目录路径 -->
+		<info-path>E:/filepath/info</info-path>
+		<!-- Trans临时文件路径 -->
+		<tmp-path>E:/filepath/tmp</tmp-path>
+		<!-- Trans传输失败Info文件目录 -->
+		<bak-path>E:/filepath/bak</bak-path>
+		<!-- Publish生成的页面目录 -->
+		<content-path>E:/filepath/data</content-path>
+
+		<!--以下是2010年5月份新增配置-->
+		<!-- ftp 是否pasv模式？如果传输不畅，请尝试试验0或者1取值 -->
+		<ftp-pasv>1</ftp-pasv>
+		<!-- 是否需要title里面的html标签去除？ -->
+		<title-replace>0</title-replace>
+		<!-- 源的设置,名称name不能重复 -->
+
+		<!--新增配置结束-->
+                <!--生成页面源数据-->
+		<source>
+			<name>cmepubsource</name>
+			<source-path>12</source-path>
+		</source>
+		<source>
+			<name>cmepubsource2</name>
+			<source-path>222</source-path>
+		</source>
+                <!--pdf源数据-->
+                
+		<!-- apache代理服务器目标 -->
+		<target>
+			<name>cmepubsite</name>
+			<protocol>socket</protocol>
+			<port>9001</port>
+			<ip>127.0.0.1</ip>
+		</target>
+                <!--网站营销服务器目标-->
+               
+                <!--资源服务器目标-->
+             
+		<!-- 页面与apache代理服务器映射 -->
+		<sender-mapping>
+			<name>cmepubwebsite</name>
+			<!-- 目标的名称 -->
+			<target-name>cmepubsite</target-name>
+			<!-- 源的名称 -->
+			<source-name>cmepubsource</source-name>
+		</sender-mapping>
+		<sender-mapping>
+			<name>cmepubwebsite2</name>
+			<!-- 目标的名称 -->
+			<target-name>cmepubsite2</target-name>
+			<!-- 源的名称 -->
+			<source-name>cmepubsource2</source-name>
+		</sender-mapping>
+        <!-- 页面与网站营销门户映射 -->
+               
+	</sender>
+</rdkl-trans>
